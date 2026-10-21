@@ -54,7 +54,7 @@
     if (sp.photo) {
       const fallback = avatarHtml(sp.name, cls).replace(/"/g, "&quot;");
       return `<img src="${escapeHtml(sp.photo)}" alt="${escapeHtml(sp.name)}" loading="lazy"
-                 style="--photo-position:${escapeHtml(sp.photoPosition || 'center 30%')}"
+                 style="--photo-position:${escapeHtml(sp.photoPosition || 'center 30%')};--photo-fit:${escapeHtml(sp.photoFit || 'cover')};--photo-background:${escapeHtml(sp.photoBackground || 'transparent')}"
                  onerror="this.insertAdjacentHTML('afterend', this.dataset.fallback); this.remove();"
                  data-fallback="${fallback}">`;
     }
@@ -80,6 +80,8 @@
 
   const jointWorkHtml = (s) =>
     s.jointWith ? `<p class="paper-coauthors">Joint with ${escapeHtml(s.jointWith)}</p>` : "";
+
+  const hasCalendarTime = (s) => /\d{1,2}:\d{2}/.test(s.time || "");
 
   /* --------------------------- partition ---------------------------- */
   const today = startOfToday();
@@ -113,7 +115,7 @@
       </div>
       <div class="spotlight__actions">
         <button class="btn btn--primary btn--sm" data-open="${s.id}">View details ${ICON.arrow}</button>
-        <button class="btn btn--ghost btn--sm" data-calendar="${s.id}" aria-haspopup="menu" aria-expanded="false">Add to calendar</button>
+        ${hasCalendarTime(s) ? `<button class="btn btn--ghost btn--sm" data-calendar="${s.id}" aria-haspopup="menu" aria-expanded="false">Add to calendar</button>` : ""}
       </div>`;
 
   }
@@ -210,7 +212,7 @@
     if (links.paper)     linkBtns.push(`<a class="btn btn--ghost btn--sm" href="${escapeHtml(links.paper)}" target="_blank" rel="noopener">Paper</a>`);
     if (links.slides)    linkBtns.push(`<a class="btn btn--ghost btn--sm" href="${escapeHtml(links.slides)}" target="_blank" rel="noopener">Slides</a>`);
     if (links.recording) linkBtns.push(`<a class="btn btn--ghost btn--sm" href="${escapeHtml(links.recording)}" target="_blank" rel="noopener">Recording</a>`);
-    if (parseDate(s.date) >= today) linkBtns.push(`<button class="btn btn--ghost btn--sm" data-calendar="${s.id}" aria-haspopup="menu" aria-expanded="false">Add to calendar</button>`);
+    if (parseDate(s.date) >= today && hasCalendarTime(s)) linkBtns.push(`<button class="btn btn--ghost btn--sm" data-calendar="${s.id}" aria-haspopup="menu" aria-expanded="false">Add to calendar</button>`);
 
     modalBody.innerHTML = `
       <div class="modal__hero">${portraitHtml(s.speaker)}</div>

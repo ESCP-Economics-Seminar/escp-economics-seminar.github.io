@@ -389,7 +389,7 @@ img { max-width: 100%; display: block; }
 .card__date .d-mon { font-size: .64rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); margin-top: 3px; }
 
 .card__media { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--surface-2); }
-.card__media img { position: relative; width: 100%; height: 100%; object-fit: cover; object-position: var(--photo-position, center 30%); filter: saturate(.9) contrast(1.03); transition: transform .5s, filter .5s; }
+.card__media img { position: relative; width: 100%; height: 100%; background: var(--photo-background, transparent); object-fit: var(--photo-fit, cover); object-position: var(--photo-position, center 30%); filter: saturate(.9) contrast(1.03); transition: transform .5s, filter .5s; }
 .card:hover .card__media img { transform: scale(1.05); }
 .card:hover .card__media img { filter: saturate(1) contrast(1.02); }
 .card__media::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(135deg, rgba(36, 0, 133, .12), rgba(222, 72, 139, .08)); mix-blend-mode: soft-light; }
@@ -483,7 +483,7 @@ img { max-width: 100%; display: block; }
 .modal__close:hover { border-color: var(--accent-soft); transform: rotate(90deg); }
 
 .modal__hero { position: relative; aspect-ratio: 21 / 8; overflow: hidden; background: var(--surface-2); }
-.modal__hero img { width: 100%; height: 100%; object-fit: cover; object-position: var(--photo-position, center 30%); }
+.modal__hero img { width: 100%; height: 100%; background: var(--photo-background, transparent); object-fit: var(--photo-fit, cover); object-position: var(--photo-position, center 30%); }
 .modal__hero .avatar { font-size: 4rem; }
 .modal__hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, var(--surface)); }
 
@@ -493,7 +493,7 @@ img { max-width: 100%; display: block; }
 .modal__speaker { display: flex; align-items: center; gap: .8rem; margin-bottom: 1.3rem; }
 .modal__speaker > div:first-child { width: 52px; height: 52px; border-radius: 50%; overflow: hidden; flex: none; }
 .modal__speaker img,
-.spotlight__top img { width: 100%; height: 100%; object-fit: cover; object-position: var(--photo-position, center 30%); }
+.spotlight__top img { width: 100%; height: 100%; background: var(--photo-background, transparent); object-fit: var(--photo-fit, cover); object-position: var(--photo-position, center 30%); }
 .modal__speaker .ms-name { font-family: var(--font-display); font-weight: 700; }
 .modal__speaker .ms-aff { color: var(--muted); font-size: .9rem; }
 .modal__meta { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.4rem; }

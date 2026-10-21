@@ -9,3 +9,8 @@ optimized locally for reliable website rendering.
 - Gonzalo Fernández de Córdoba: https://escp.eu/faculty-research/faculty-members/fernandez-de-cordoba-gonzalo
 - Francesco Chiocchio: https://fchiocchio.github.io/
 - Paul Hubert: https://sites.google.com/view/paulhubert
+- Luisa Carrer: https://luisa-carrer.github.io/
+- Corentin Roussel: https://sites.google.com/view/corentin-roussel-eco-research/home/
+- Giulia Tura: https://cepr.org/about/people/giulia-tura
+- Carlo Galli: https://carlogalli.github.io/
+- Claire Rimbaud: https://sites.google.com/view/claire-rimbaud/home
